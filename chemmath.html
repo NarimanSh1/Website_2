@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Olympiad Resource Center</title>
+    <style>
+        :root {
+            --primary-color: #000; /* Black */
+            --secondary-color: #fff; /* White */
+            --text-color: #fff; /* White */
+            --background-color: #000; /* Black */
+            --header-footer-bg-color: #000; /* Black */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .header {
+            background-color: var(--header-footer-bg-color);
+            color: var(--text-color);
+            padding: 1em 0;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .main-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Increased margin */
+        }
+
+        .button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 25px 50px; /* Larger padding */
+            margin: 10px;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-size: 24px; /* Larger font size */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .section-container {
+            display: none;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-item {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .problem-item:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .problem-details {
+            display: none;
+            padding: 10px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .problem-details a {
+            color: #c0c0c0; /* Light grey color for better visibility */
+            text-decoration: none; /* Removes the underline from links */
+        }
+
+        .problem-details a:hover {
+            color: #ffffff; /* White color on hover for a visual effect */
+            text-decoration: underline; /* Adds underline on hover */
+        }
+
+        .footer {
+            background-color: var(--header-footer-bg-color);
+            color: var(--text-color);
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Simple chemistry-related animation */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Olympiad Resource Center</h1>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+        <div class="main-buttons">
+            <button class="button" onclick="toggleSection('math')">Math Olympiad</button>
+            <button class="button" onclick="toggleSection('chemistry')">Chemistry Olympiad</button>
+        </div>
+        <!-- Chemistry-related animation -->
+        <div class="chemistry-animation"></div>
+    </div>
+
+    <div id="math" class="section section-container">
+        <h2>Math Olympiad</h2>
+        <ul class="problem-list">
+            <!-- Problem Item -->
+            <li class="problem-item" onclick="toggleDetails(this)">
+                <div>Problem 1: Algebra Challenge</div>
+                <div class="problem-details">
+                    <p>Author: Jane Doe | Date: 2023-11-21</p>
+                    <p><a href="2001t.pdf" target="_blank">View Problem</a> | <a href="path/to/math/solution1.pdf" target="_blank">View Solution</a></p>
+                </div>
+            </li>
+            <!-- Additional problem items... -->
+        </ul>
+        <button class="button" onclick="toggleSection('main')">Back to Main</button>
+    </div>
+
+    <div id="chemistry" class="section section-container">
+        <h2>Chemistry Olympiad</h2>
+        <ul class="problem-list">
+            <!-- Problem Item -->
+            <li class="problem-item" onclick="toggleDetails(this)">
+                <div>Problem 1: Organic Synthesis</div>
+                <div class="problem-details">
+                    <p>Author: John Smith | Date: 2023-11-21</p>
+                    <p><a href="path/to/chemistry/problem1.pdf" target="_blank">View Problem</a> | <a href="path/to/chemistry/solution1.pdf" target="_blank">View Solution</a></p>
+                </div>
+            </li>
+            <!-- Additional problem items... -->
+        </ul>
+        <button class="button" onclick="toggleSection('main')">Back to Main</button>
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Olympiad Resource Center</p>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            var mainContainer = document.getElementById('mainContainer');
+            var mathSection = document.getElementById('math');
+            var chemistrySection = document.getElementById('chemistry');
+
+            mainContainer.style.display = (sectionId === 'main') ? 'block' : 'none';
+            mathSection.style.display = (sectionId === 'math') ? 'block' : 'none';
+            chemistrySection.style.display = (sectionId === 'chemistry') ? 'block' : 'none';
+        }
+
+        function toggleDetails(element) {
+            var details = element.getElementsByClassName('problem-details')[0];
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>
