@@ -46,13 +46,21 @@
         .button {
             background-color: var(--primary-color);
             color: var(--secondary-color);
-            padding: 15px 30px;
+            padding: 25px 50px; /* Larger padding for larger screens */
             margin: 10px;
             border: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 24px; /* Larger font size for larger screens */
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Responsive adjustments for smaller screens */
+        @media screen and (max-width: 768px) {
+            .button {
+                padding: 15px 30px; /* Smaller padding for smaller screens */
+                font-size: 18px; /* Smaller font size for smaller screens */
+            }
         }
         
         .button:hover {
